@@ -2,15 +2,20 @@ package panels;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import main.*;
+import java.sql.Connection;
+import mysql.*;
 import javax.swing.*;
 
 public class Login extends JPanel{
 	private Font F;
+	Connection conn = null;
 	
 	//constructor for class Login
-	public Login(Font x) {
+	public Login(Font x, Connection c) {
 		this.F = x;
+		this.conn = c;
+		auth auth = new auth(conn);
 		
 		//Init of panels and layouts
 		this.setLayout(new GridBagLayout());
@@ -41,7 +46,12 @@ public class Login extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				
+				String passcode = pass_f.getText();
+				String username = user_f.getText();
+				if (auth.authenticate(username, passcode)) {
+					//What to do after authentication
+					
+				}
 			}
 		});
 		

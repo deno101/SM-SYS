@@ -2,12 +2,9 @@ package mysql;
 import java.sql.*;
 
 public class SQL_Engine {
-	private Connection conn;
-	public SQL_Engine() {
-		Exe();
-	}
+	private Connection conn = null ;
 	
-	private void Exe() {
+	public Connection getDBConn() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
@@ -15,12 +12,22 @@ public class SQL_Engine {
 			e.printStackTrace();
 		}
 		try {
-			this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/SM_SYS","root","");
+			this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/SM_SYS","deno101","denniz");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return conn;
 	}
+	
+	
+	
+	
+	
 	
 
 }
+
+
+

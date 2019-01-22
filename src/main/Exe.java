@@ -2,9 +2,15 @@ package main;
 import java.awt.*;
 import javax.swing.*;
 import panels.*;
+import mysql.*;
+
+import java.sql.*;
 
 public class Exe {
 	Font font = new Font("SansSerif", Font.PLAIN, 14);
+	SQL_Engine engine = new SQL_Engine();
+	Connection conn = engine.getDBConn();
+	auth auth = new auth(conn);
 	
 	public Exe() {
 		JFrame parent = new JFrame("School Management Sys");
@@ -16,7 +22,7 @@ public class Exe {
 		main_panel.setLayout(c1);
 		
 		//Adding of the login screen
-		Login log = new Login(font);
+		Login log = new Login(font,conn);
 		main_panel.add(log, "Login");
 		
 		c1.show(main_panel, "Login");
@@ -29,7 +35,7 @@ public class Exe {
 	}
 	
 	public static void main(String[] args) {
-		new Exe();
+		Exe z = new Exe();
 	}
-
+	
 }

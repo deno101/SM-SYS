@@ -9,6 +9,7 @@ import java.sql.*;
 
 
 public class Exe {
+	
 	Font font = new Font("SansSerif", Font.PLAIN, 14);
 	SQL_Engine engine = new SQL_Engine();
 	Connection conn = engine.getDBConn();
@@ -68,7 +69,6 @@ public class Exe {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
 				| UnsupportedLookAndFeelException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
